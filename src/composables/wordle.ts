@@ -42,8 +42,8 @@ const isValidLetter = (key: string) => {
 };
 
 const handleInput = (key: string) => {
-  if (isGameOver.value && key === "Enter") {
-    newGame();
+  if (isGameOver.value) {
+    if (key === "Enter") newGame();
     return;
   }
 
