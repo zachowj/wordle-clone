@@ -3,16 +3,9 @@ import KeyboardLetter from "./KeyboardLetter.vue";
 
 interface Props {
   letters: string[];
-  answer: string;
-  guesses: string[];
-  guessIndex: number;
 }
 
 const props = defineProps<Props>();
-interface Emits {
-  (event: "letterClicked", value: string): void;
-}
-defineEmits<Emits>();
 </script>
 
 <template>
@@ -21,10 +14,7 @@ defineEmits<Emits>();
       v-for="letter in letters"
       :index="letter"
       :letter="letter"
-      :answer="answer"
-      :guesses="guesses"
-      :guessIndex="guessIndex"
-      @letter-clicked="$emit('letterClicked', letter)"
+      v-bind:="$attrs"
     ></KeyboardLetter>
   </div>
 </template>
